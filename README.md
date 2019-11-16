@@ -23,3 +23,5 @@ It's likely they can be used from the project or solution folder as well, after 
   but with this, the AdditionalDependencies are treated as relative to the current folder $(ProjectDir)
 
 Much of this is from the MASM target included with VC, with heavy modifications.
+
+contact author at sean.palmer`at`ymail.com
