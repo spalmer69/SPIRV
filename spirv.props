@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(SPIRVBeforeTargets)' == '' and '$(SPIRVAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+	<!-- produces header files ClCompile may consume; or binaries the resource compiler might consume -->
+	<SPIRVAfterTargets>CustomBuild</SPIRVAfterTargets>
+    <SPIRVBeforeTargets>ClCompile</SPIRVBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <SPIRV> <!-- the custom task name - most of the definitions are in spirv.xml -->
+	  <!-- default options -->
+      <Silent>true</Silent>
+	  <Optimize>true</Optimize>
+	  <OutputFormat>1</OutputFormat>
+      <ObjectFileName>%(Identity).inc</ObjectFileName>
+      <ExecutionDescription>Building %(Identity)...</ExecutionDescription>
+      <CommandLineTemplate>&quot;$(VULKAN_SDK)\bin\glslc.exe&quot; -I./ -I%(RelativeDir) [AdditionalOptions] [AllOptions] [Inputs]</CommandLineTemplate>
+    </SPIRV>
+  </ItemDefinitionGroup>
+</Project>
+
+<!-- 
+to use, simply copy these files to
+%ProgramFiles(x86)%\Microsoft Visual Studio\20??\Community\MSBuild\Microsoft\VC\v???\BuildCustomizations\
+then restart Visual Studio, and open the Project menu, and select Build Customizations... select spirv
+-->
+
+<!-- FIXME there's still a few problems:
+FIXME the build output doesn't show up at Minimal verbosity
+FIXME no auto dependencies!
+FIXME somehow now when using this custom build target, the project containing the usage
+now always seems to get built (and then says it's up-to-date, but *succeeded*)
+whereas other projects not using it will simply succeed immediately without running any rules.
+idk what I'm doing wrong.  It's not a huge issue as it doesn't take long, and seems to be necessary to
+actually run these custom rules, but does tend to clutter up the build log on normal verbosity.
+FIXME unfortunately, before, with Custom Build, all the dependencies were specified relative to the input file's folder ($RelativeDir)
+but with this, the AdditionalDependencies are treated as relative to the current folder $(ProjectDir)
+-->
+
+<!-- much of this is from the MASM target included with VC -->

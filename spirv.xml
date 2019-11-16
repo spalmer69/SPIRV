@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <!-- details of the custom SPIRV task from spirv.props -->
+  <Rule
+    Name="SPIRV"
+    PageTemplate="tool"
+    DisplayName="LunarG glslc"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="SPIRV" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="SPIRV"
+          SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <BoolProperty
+      Name="Silent"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Silent Mode"
+      Description="Suppress the display of the startup banner and information messages.     (-s)"
+      Switch="-s" />
+    <BoolProperty
+      Name="GeneratePreprocessedSource"
+      Category="Listing File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Generate Preprocessed Source Listing"
+      Description="Generates a preprocessed GLSL source listing to the Output Window.     (-E)"
+      Switch="-E" />
+    <BoolProperty
+      Name="GenerateHumanReadableOutput"
+      Category="Listing File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Generate Human Readable Output"
+      Description="Print human readable form of SPIR-V assembly.     (-H)"
+      Switch="-H" />
+    <BoolProperty
+      Name="OpenGLBinary"
+      Category="Object File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Enable OpenGL Binary Generation"
+      Description="Create SPIR-V binary, under OpenGL semantics.     (--target-env=opengl)"
+      Switch="--target-env=opengl" />
+    <BoolProperty
+      Name="RelaxedSemanticErrors"
+      Category="Advanced"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Relaxed Semantic Errors"
+      Description="Enables relaxed semantic error-checking mode.     (-r)"
+      Switch="-r" />
+    <BoolProperty
+      Name="Optimize"
+      Category="Advanced"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Optimize Generated Code"
+      Description="Optimize generated code for better performance.     (-O)"
+      Switch="-O" />
+    <BoolProperty
+      Name="SuppressWarnings"
+      Category="Advanced"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Suppress Warnings"
+      Description="Prevents printing of messages if warnings are generated.     (-w)"
+      Switch="-w" />
+    <BoolProperty
+      Name="GenerateDebugInformation"
+      Category="Listing File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Generate Debug Information"
+      Description="Generate source-level debug information.     (-g)"
+      Switch="-g" />
+    <BoolProperty
+      Name="GenerateReflectionInformation"
+      Category="Listing File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Generate Reflection Information"
+      Description="Dump reflection query database.     (-q)"
+      Switch="-q" />
+    <BoolProperty
+      Name="GenerateDependencies"
+      Category="Listing File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Generate Dependency Information"
+      Description="Generate Make dependency information.     (-M)"
+      Switch="-M" />
+	<EnumProperty
+      Name="OutputFormat"
+      Category="Object File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Output Format"
+      Description="Selects how to output binary SPIR-V data.     (/mfmt)">
+      <EnumValue
+        Name="0"
+        DisplayName="Output binary file (/mfmt=bin)"
+		Switch="-mfmt=bin" />
+      <EnumValue
+        Name="1"
+        DisplayName="Output hexadecimal comma-separated listing (C header) (/mfmt=num)"
+		Switch="-mfmt=num" />
+    </EnumProperty>
+    <StringProperty
+      Name="ObjectFileName"
+      Category="Object File"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Object File Name"
+      Description="Specifies the name of the output object file.     (-o [file])"
+      Switch="-o [value]" /> <!-- &quot;[value]&quot; -->
+	<!-- idk that we actually need the &quot;s, especially not here where the [value] is a known pathname -->
+    <StringListProperty
+      Name="PreprocessorDefinitions"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Preprocessor Definitions"
+      Description="Defines a text macro with the given name.     (-D [symbol])"
+      Switch="-D &quot;[value]&quot;" />
+    <StringListProperty
+      Name="IncludePaths"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Include Paths"
+      Description="Sets path for include files.     (-I [path])"
+      Switch="-I&quot;[value]&quot;" />
+    <StringListProperty
+      Name="AdditionalDependencies"
+      DisplayName="Additional Dependencies"
+      Description="Specify relative to the $(ProjectDir), may need to specify $(RelativeDir) for current item's folder, unlike CustomBuild target."
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+	  DisplayName="Additional Options"
+      Category="Command Line">
+     </StringProperty>
+	 
+    <StringProperty
+      Name="CommandLineTemplate"
+      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      DisplayName="Command Line"
+      Visible="False"
+      IncludeInCommandLine="False" />
+    <StringProperty
+      Name="ExecutionDescription"
+      DisplayName="Execution Description"
+      IncludeInCommandLine="False"
+      Visible="False" />
+    <DynamicEnumProperty
+     Name="SPIRVBeforeTargets"
+     Category="General"
+     EnumProvider="Targets"
+     IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute Before</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run before.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SPIRVBeforeTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+    <DynamicEnumProperty
+      Name="SPIRVAfterTargets"
+      Category="General"
+      EnumProvider="Targets"
+      IncludeInCommandLine="False">
+      <DynamicEnumProperty.DisplayName>
+        <sys:String>Execute After</sys:String>
+      </DynamicEnumProperty.DisplayName>
+      <DynamicEnumProperty.Description>
+        <sys:String>Specifies the targets for the build customization to run after.</sys:String>
+      </DynamicEnumProperty.Description>
+      <DynamicEnumProperty.ProviderSettings>
+        <NameValuePair
+          Name="Exclude"
+          Value="^SPIRVAfterTargets|^Compute" />
+      </DynamicEnumProperty.ProviderSettings>
+      <DynamicEnumProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType=""
+          HasConfigurationCondition="true" />
+      </DynamicEnumProperty.DataSource>
+    </DynamicEnumProperty>
+  </Rule>
+  <ItemType
+    Name="SPIRV"
+    DisplayName="LunarG glslc" />
+  <FileExtension
+    Name="*.comp"
+    ContentType="SPIRV" />
+  <FileExtension
+    Name="*.frag"
+    ContentType="SPIRV" />
+  <FileExtension
+    Name="*.vert"
+    ContentType="SPIRV" />
+  <FileExtension
+    Name="*.geom"
+    ContentType="SPIRV" />
+  <FileExtension
+    Name="*.tese"
+    ContentType="SPIRV" />
+  <FileExtension
+    Name="*.tesc"
+    ContentType="SPIRV" />
+  <ContentType
+    Name="SPIRV"
+    DisplayName="LunarG glslc"
+    ItemType="SPIRV" />
+</ProjectSchemaDefinitions>
