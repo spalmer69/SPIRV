@@ -30,8 +30,7 @@
 	  <!-- seems the included options are specified here; if not listed here, doesn't show up on property page -->
     <SPIRV
       CommandLineTemplate="%(SPIRV.CommandLineTemplate)"
-      Silent="%(SPIRV.Silent)"
-	  GenerateReflectionInformation="%(SPIRV.GenerateReflectionInformation)"
+      GenerateReflectionInformation="%(SPIRV.GenerateReflectionInformation)"
       GeneratePreprocessedSource="%(SPIRV.GeneratePreprocessedSource)"
       GenerateHumanReadableOutput="%(SPIRV.GenerateHumanReadableOutput)"
  	  GenerateDependencies="%(SPIRV.GenerateDependencies)"

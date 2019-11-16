@@ -9,7 +9,6 @@
   <ItemDefinitionGroup>
     <SPIRV> <!-- the custom task name - most of the definitions are in spirv.xml -->
 	  <!-- default options -->
-      <Silent>true</Silent>
 	  <Optimize>true</Optimize>
 	  <OutputFormat>1</OutputFormat>
       <ObjectFileName>%(Identity).inc</ObjectFileName>

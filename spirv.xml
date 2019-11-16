@@ -38,12 +38,6 @@
       </StringProperty.DataSource>
     </StringProperty>
     <BoolProperty
-      Name="Silent"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
-      DisplayName="Silent Mode"
-      Description="Suppress the display of the startup banner and information messages.     (-s)"
-      Switch="-s" />
-    <BoolProperty
       Name="GeneratePreprocessedSource"
       Category="Listing File"
       HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
@@ -65,13 +59,6 @@
       Description="Create SPIR-V binary, under OpenGL semantics.     (--target-env=opengl)"
       Switch="--target-env=opengl" />
     <BoolProperty
-      Name="RelaxedSemanticErrors"
-      Category="Advanced"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
-      DisplayName="Relaxed Semantic Errors"
-      Description="Enables relaxed semantic error-checking mode.     (-r)"
-      Switch="-r" />
-    <BoolProperty
       Name="Optimize"
       Category="Advanced"
       HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
@@ -92,13 +79,6 @@
       DisplayName="Generate Debug Information"
       Description="Generate source-level debug information.     (-g)"
       Switch="-g" />
-    <BoolProperty
-      Name="GenerateReflectionInformation"
-      Category="Listing File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
-      DisplayName="Generate Reflection Information"
-      Description="Dump reflection query database.     (-q)"
-      Switch="-q" />
     <BoolProperty
       Name="GenerateDependencies"
       Category="Listing File"
@@ -127,8 +107,7 @@
       HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
       DisplayName="Object File Name"
       Description="Specifies the name of the output object file.     (-o [file])"
-      Switch="-o [value]" /> <!-- &quot;[value]&quot; -->
-	<!-- idk that we actually need the &quot;s, especially not here where the [value] is a known pathname -->
+      Switch="-o [value]" />
     <StringListProperty
       Name="PreprocessorDefinitions"
       HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
