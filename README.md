@@ -24,6 +24,6 @@ It's likely they can be used from the project or solution folder as well, after 
 
 Much of this is from the MASM target included with VC, with heavy modifications.
 
-This tool is not affiliated with Google or LunarG corporation and all such marks are own by the respective entities.  In fact I'm not really sure who to attribute the glslc compiler tool to, or if I should even mention such an entity in the descriptions; I originally was attributing LunarG with it, but Google in fact wrote and maintains it.  I just wrote this build customization to help use it from Visual Studio.
+This tool is not affiliated with Google or LunarG corporation and all such marks are own by the respective entities.  In fact I'm not really sure who to attribute the glslc compiler tool to, or if I should even mention such an entity in the descriptions; I originally was attributing LunarG with it, but Google in fact wrote and maintains it.  In fact it's right over here:  https://github.com/google/shaderc/tree/master/glslc  I just wrote this build customization to help use it from Visual Studio.
 
 contact author at sean.palmer`at`ymail.com
