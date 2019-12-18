@@ -1,5 +1,5 @@
 # SPIRV
-A MSBuild Build Customization which adds support for LunarG **glslc** compiler producing SPIR-V
+A MSBuild Build Customization which adds support for Google **glslc** compiler producing SPIR-V, the one included with the LunarG Vulkan SDK.
 
 Beats using the Custom Build Tool!
 
@@ -23,5 +23,7 @@ It's likely they can be used from the project or solution folder as well, after 
   but with this, the AdditionalDependencies are treated as relative to the current folder $(ProjectDir)
 
 Much of this is from the MASM target included with VC, with heavy modifications.
+
+This tool is not affiliated with Google or LunarG corporation and all such marks are own by the respective entities.  In fact I'm not really sure who to attribute the glslc compiler tool to, or if I should even mention such an entity in the descriptions; I originally was attributing LunarG with it, but Google in fact wrote and maintains it.  I just wrote this build customization to help use it from Visual Studio.
 
 contact author at sean.palmer`at`ymail.com
