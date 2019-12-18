@@ -4,7 +4,7 @@
   <Rule
     Name="SPIRV"
     PageTemplate="tool"
-    DisplayName="LunarG glslc"
+    DisplayName="Google glslc"
     Order="200">
     <Rule.DataSource>
       <DataSource
@@ -40,56 +40,56 @@
     <BoolProperty
       Name="GeneratePreprocessedSource"
       Category="Listing File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Generate Preprocessed Source Listing"
       Description="Generates a preprocessed GLSL source listing to the Output Window.     (-E)"
       Switch="-E" />
     <BoolProperty
       Name="GenerateHumanReadableOutput"
       Category="Listing File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Generate Human Readable Output"
       Description="Print human readable form of SPIR-V assembly.     (-H)"
       Switch="-H" />
     <BoolProperty
       Name="OpenGLBinary"
       Category="Object File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Enable OpenGL Binary Generation"
       Description="Create SPIR-V binary, under OpenGL semantics.     (--target-env=opengl)"
       Switch="--target-env=opengl" />
     <BoolProperty
       Name="Optimize"
       Category="Advanced"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Optimize Generated Code"
       Description="Optimize generated code for better performance.     (-O)"
       Switch="-O" />
     <BoolProperty
       Name="SuppressWarnings"
       Category="Advanced"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Suppress Warnings"
       Description="Prevents printing of messages if warnings are generated.     (-w)"
       Switch="-w" />
     <BoolProperty
       Name="GenerateDebugInformation"
       Category="Listing File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Generate Debug Information"
       Description="Generate source-level debug information.     (-g)"
       Switch="-g" />
     <BoolProperty
       Name="GenerateDependencies"
       Category="Listing File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Generate Dependency Information"
       Description="Generate Make dependency information.     (-M)"
       Switch="-M" />
 	<EnumProperty
       Name="OutputFormat"
       Category="Object File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Output Format"
       Description="Selects how to output binary SPIR-V data.     (/mfmt)">
       <EnumValue
@@ -104,19 +104,19 @@
     <StringProperty
       Name="ObjectFileName"
       Category="Object File"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Object File Name"
       Description="Specifies the name of the output object file.     (-o [file])"
       Switch="-o [value]" />
     <StringListProperty
       Name="PreprocessorDefinitions"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Preprocessor Definitions"
       Description="Defines a text macro with the given name.     (-D [symbol])"
       Switch="-D &quot;[value]&quot;" />
     <StringListProperty
       Name="IncludePaths"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Include Paths"
       Description="Sets path for include files.     (-I [path])"
       Switch="-I&quot;[value]&quot;" />
@@ -134,7 +134,7 @@
 	 
     <StringProperty
       Name="CommandLineTemplate"
-      HelpUrl="https://vulkan.lunarg.com/doc/view/1.0.30.0/linux/spirv_toolchain.html"
+      HelpUrl="https://github.com/google/shaderc/tree/master/glslc#command-line-options"
       DisplayName="Command Line"
       Visible="False"
       IncludeInCommandLine="False" />
@@ -192,7 +192,7 @@
   </Rule>
   <ItemType
     Name="SPIRV"
-    DisplayName="LunarG glslc" />
+    DisplayName="Google glslc" />
   <FileExtension
     Name="*.comp"
     ContentType="SPIRV" />
@@ -213,6 +213,6 @@
     ContentType="SPIRV" />
   <ContentType
     Name="SPIRV"
-    DisplayName="LunarG glslc"
+    DisplayName="Google glslc"
     ItemType="SPIRV" />
 </ProjectSchemaDefinitions>
